@@ -1,0 +1,43 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+#define PI 3.14159265358979323846
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+float V;
+float g;
+
+
+float2 multComplex(float2 nbr1, float2 nbr2)
+{
+    float2 result = float2(0,0);
+    float real = nbr1.x * nbr2.x + nbr1.y * nbr2.y;
+    float imag = nbr1.x * nbr2.y + nbr1.y * nbr2.x;
+    return float2(real, imag);
+}
+
+float norm(const float nbr1,const float nbr2)
+{
+    return sqrt(nbr1 * nbr1 + nbr2 * nbr2);
+}
+float philips(const float k)
+{
+    const float L = (V * V) / g;
+    const float kL = (float)k * L;
+    const float num = exp(-1 / (kL * kL));
+    const float denum = k * k * k * k;
+    return num / denum;
+}
+
+[numthreads(1,1,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    float norm = norm(id.x, id.z);
+    const float invtwo = 1 / sqrt(2);
+    const float p = philips(norm);
+    float real = invtwo * p; 
+
+    // TODO: insert actual code here!
+
+    //Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
+}

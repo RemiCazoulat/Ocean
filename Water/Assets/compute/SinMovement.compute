@@ -1,0 +1,35 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+#define PI 3.14159265358979323846
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+struct wave
+{
+    float amplitude;
+    float frequency;
+    float phase;
+    float3 direction;
+    int type;
+};
+RWStructuredBuffer<wave> waves;
+RWStructuredBuffer<float3> vertices;
+int resolution;
+int sin_number;
+float time;
+
+int index;
+float vertex = 0;
+float xzdir;
+[numthreads(8,1,8)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    index = id.x + id.z * resolution;
+    //Result[index].y = amplitude * sin(Result[index].x * w + time * phi);
+    for (int i = 0; i < sin_number; i ++) {
+        xzdir = vertices[index].x * waves[i].direction.x + vertices[index].z * waves[i].direction.z;
+        //on calcule la nouvelle position des sommets
+        vertex += waves[i].amplitude * sin(xzdir * waves[i].frequency + time * waves[i].phase);
+    }
+    vertices[index].y = vertex;
+}
