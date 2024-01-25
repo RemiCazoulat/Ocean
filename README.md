@@ -6,7 +6,7 @@ for now :
 - creating 512 waves.
 - creating 512 * 512 vertices.
 
-Water is blue, and the lambertian blur is nearly working.\
+Water is blue, and the lambertian blur is nearly working.
 
 # What are the next steps
 creating a texture that contains frequencies of the waves.\
