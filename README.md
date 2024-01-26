@@ -9,11 +9,10 @@ for now :
 
 Water is blue, and the gaussian blur is nearly working.
 
-A photo and a video of what it looks like :
+A photo of what it looks like (a video was to heavy) :
 
 ![Capture d'écran 2024-01-26 140138](https://github.com/RemiCazoulat/Ocean-simulation/assets/61828714/9a0f32f2-edec-4012-b028-5a0177da4356)
 
-![VidosanstitreRaliseavecClipchamp-ezgif com-video-to-gif-converter](https://github.com/RemiCazoulat/Ocean-simulation/assets/61828714/535c65e3-0306-4755-b3d0-2bb75c206a24)
 
 
 
