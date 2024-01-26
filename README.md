@@ -7,7 +7,7 @@ for now :
 - creating 512 waves.
 - creating 512 * 512 vertices.
 
-Water is blue, and the lambertian blur is nearly working.
+Water is blue, and the gaussian blur is nearly working.
 
 A photo and a video of what it looks like :
 
