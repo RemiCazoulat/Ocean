@@ -1,5 +1,5 @@
 # Ocean
- Trying to do water simulation
+ Trying to simulate Water
 
 ## What is working
 moving and displaying vertices with shaders.
